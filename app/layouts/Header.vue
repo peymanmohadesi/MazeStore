@@ -5,17 +5,17 @@
     <div class="w-full max-w-[1112px] mx-auto flex justify-between items-center">
       <ul class="flex items-center justify-between gap-4 mr-[26%] text-2">
         <li class="flex items-center gap-2">
-          <Icon name="solar:widget-2-outline" class="w-4 h-4"/>
+
           <span>لیست محصولات</span>
         </li>
         <li class="flex items-center gap-2">
-          <Icon name="solar:notebook-2-outline" class="w-4 h-4"/>
+          
           <span>دریافت مشاوره</span>
         </li>
       </ul>
       <Button @click="call" class="bg-primary text-surface-white text-3">
         <span>تماس</span>
-        <Icon name="fa-phone"/>
+        
       </Button>
     </div>
   </header>

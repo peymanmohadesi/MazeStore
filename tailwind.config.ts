@@ -7,6 +7,9 @@ export default <Partial<Config>>{
         primary: {
           DEFAULT: '#E20054',
         },
+        secondary: {
+          DEFAULT: '#0A2A51'
+        },
         surface: {
           white: '#ffffff',
           mainback: '#e9edf5'
