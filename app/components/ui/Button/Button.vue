@@ -1,6 +1,6 @@
 <template>
   <button
-    class="inline-flex items-center justify-center gap-2 rounded-16 px-4 py-3 text-2"
+    class="inline-flex items-center justify-center gap-2 rounded-16 px-4 py-3 text-2 transition"
     :type="type"
     :disabled="disabled || loading"
   >
