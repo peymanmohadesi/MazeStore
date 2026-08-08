@@ -13,7 +13,7 @@
         </span>
 
         <span :class="selectedCategories.includes(category.name) ? 'bg-primary' : 'bg-secondary'" class="text-1 text-surface-white w-6 h-6 flex items-center px-2 rounded-6">
-          {{ category.count.toLocaleString('fa-IR') }}
+          {{ convertNumberToPersian(category.count) }}
         </span>
       </div>
     </Checkbox>
@@ -24,6 +24,7 @@
 <script setup lang="ts">
 import CheckBox from '~/components/ui/CheckBox/CheckBox.vue';
 import Card from '../Card/Card.vue';
+import { convertNumberToPersian } from '~/utils/convertNumberToPersian.ts'
 
 interface Category {
   name: string
