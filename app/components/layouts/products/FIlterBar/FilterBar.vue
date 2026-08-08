@@ -1,6 +1,6 @@
 <template>
   <div class="rounded-24 p-4 bg-white flex items-center justify-between flex-wrap shadow-[0px_10px_40px_0px_#0000000D] text-3 text-surface-darkgray">
-    <span>فیلترهای اعمال شده</span>
+    <span class="hidden md:block">فیلترهای اعمال شده</span>
     
     <div class="flex items-center justify-between flex-wrap gap-3">
       <Chip
