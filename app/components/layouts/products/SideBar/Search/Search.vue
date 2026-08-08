@@ -5,7 +5,7 @@
         placeholder="عنوان محصول را وارد کن..."
         v-model="searchInput">
         <template #rightIcon>
-          <SearchIcon/>
+          <SearchIcon class="text-primary"/>
         </template>
       </Input>
     <Button @click="search" class="bg-primary text-white hover:bg-primary-light">جستجو</Button>

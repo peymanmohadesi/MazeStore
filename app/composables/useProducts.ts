@@ -234,6 +234,12 @@ export const useProducts = () => {
     await syncToUrl()
   }
 
+  const resetSearch = () => {
+    searchQuery.value = ""
+    searchInput.value = ""
+    search()
+  }
+
   return {
     products,
     filteredProducts,
@@ -253,6 +259,7 @@ export const useProducts = () => {
     clearFilters,
     refresh,
     updateCategories,
-    updateSort
+    updateSort,
+    resetSearch
   }
 }
