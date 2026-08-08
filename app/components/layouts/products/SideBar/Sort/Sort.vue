@@ -32,11 +32,11 @@ const sortBy = computed({
 
 const sortOptions = [
   {
-    value: 'price-asc',
+    value: 'count-asc',
     label: 'تعداد: کم به زیاد',
   },
   {
-    value: 'price-desc',
+    value: 'count-desc',
     label: 'تعداد: زیاد به کم',
   },
   {

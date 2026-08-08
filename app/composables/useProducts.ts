@@ -32,7 +32,7 @@ export const useProducts = () => {
 
   const sortBy = useState<SortOption>(
     'products-sort',
-    () => 'price-asc'
+    () => 'count-asc'
   )
 
   const syncFiltersFromUrl = () => {
@@ -54,14 +54,14 @@ export const useProducts = () => {
     const sort = route.query.sort
 
     if (
-      sort === 'price-asc' ||
-      sort === 'price-desc' ||
+      sort === 'count-asc' ||
+      sort === 'count-desc' ||
       sort === 'rating-desc' ||
       sort === 'rating-asc'
     ) {
       sortBy.value = sort
     } else {
-      sortBy.value = 'price-asc'
+      sortBy.value = 'count-asc'
     }
   }
 
@@ -77,7 +77,7 @@ export const useProducts = () => {
         selectedCategories.value.join(',')
     }
 
-    if (sortBy.value !== 'price-asc') {
+    if (sortBy.value !== 'count-asc') {
       query.sort = sortBy.value
     }
 
@@ -134,11 +134,11 @@ export const useProducts = () => {
 
     result.sort((a, b) => {
       switch (sortBy.value) {
-        case 'price-asc':
-          return a.price - b.price
+        case 'count-asc':
+          return (a.rating?.count || 0) - (b.rating?.count || 0)
 
-        case 'price-desc':
-          return b.price - a.price
+        case 'count-desc':
+          return (b.rating?.count || 0) - (a.rating?.count || 0)
 
         case 'rating-desc':
           return (
@@ -194,7 +194,7 @@ export const useProducts = () => {
     searchInput.value = ''
     searchQuery.value = ''
     selectedCategories.value = []
-    sortBy.value = 'price-asc'
+    sortBy.value = 'count-asc'
 
     await router.replace({
       query: {},
@@ -213,7 +213,7 @@ export const useProducts = () => {
         selectedCategories.value.join(',')
     }
 
-    if (sortBy.value !== 'price-asc') {
+    if (sortBy.value !== 'count-asc') {
       query.sort = sortBy.value
     }
 

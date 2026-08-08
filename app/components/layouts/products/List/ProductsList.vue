@@ -4,11 +4,13 @@
       class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <LoadingState/>
     </div>
-    <div v-else-if="error">
+    <div v-else-if="error" class="w-full bg-white p-4 rounded-24 text-center">
+      <Icon name="fa-warning" class="w-full w-10 h-10 text-primary"/>
       {{ error.message }}
     </div>
 
-    <div v-else-if="!filteredProducts?.length">
+    <div v-else-if="!filteredProducts?.length" class="w-full bg-white p-4 rounded-24 text-center">
+      <Icon name="fa-warning" class="w-full w-10 h-10 text-primary"/>>
       محصولی پیدا نشد.
     </div>
 

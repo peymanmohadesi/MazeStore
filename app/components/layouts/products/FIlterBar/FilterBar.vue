@@ -20,7 +20,7 @@
         @close="handleClose"
       >
       <template>
-        <PriceDown :class="sortBy=='price-asc' || sortBy=='rating-asc' ? 'rotate-180' : ''" class="text-secondary"/>
+        <PriceDown :class="sortBy=='count-asc' || sortBy=='rating-asc' ? 'rotate-180' : ''" class="text-secondary"/>
       </template>
       </Chip>
       <Chip
@@ -42,13 +42,13 @@ import { useProducts } from '~/composables/useProducts';
 const { searchQuery, resetSearch, sortBy, updateSort, selectedCategories, updateCategories} = useProducts()
 
 const sortMap:{
-  'price-asc': string,
-  'price-desc': string,
+  'count-asc': string,
+  'count-desc': string,
   'rating-desc': string,
   'rating-asc': string
 } = {
-  'price-asc': 'تعداد',
-  'price-desc': 'تعداد',
+  'count-asc': 'تعداد',
+  'count-desc': 'تعداد',
   'rating-desc': 'رتبه',
   'rating-asc': 'رتبه'
 }
@@ -62,7 +62,7 @@ const handleClose = (id: string) => {
     resetSearch()
   }
   if(id == "sort") {
-    updateSort('price-asc')
+    updateSort('count-asc')
   }
   if(id == "category") {
     updateCategories([])

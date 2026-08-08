@@ -1,7 +1,11 @@
 <template>
      <Card title="دسته بندی" expaned>
     <div class="flex flex-col gap-4 pb-2">
+      <div v-if="loading" class="w-full flex items-center justify-center">
+        <Spinner/>
+      </div>
     <CheckBox
+    v-else
       v-for="category in categories"
       :key="category.name"
       :model-value="selectedCategories.includes(category.name)"
@@ -25,6 +29,8 @@
 import CheckBox from '~/components/ui/CheckBox/CheckBox.vue';
 import Card from '../Card/Card.vue';
 import { convertNumberToPersian } from '~/utils/convertNumberToPersian.ts'
+import Spinner from '~/components/ui/Spinner/Spinner.vue';
+import { useProducts } from '~/composables/useProducts.ts';
 
 interface Category {
   name: string
@@ -39,6 +45,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   'update:selectedCategories': [value: string[]]
 }>()
+
+const { loading } = useProducts()
 
 const toggleCategory = (
   category: string,

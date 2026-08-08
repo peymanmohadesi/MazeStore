@@ -19,8 +19,8 @@ export const productsSchema = z.array(productSchema)
 
 export type Product = z.infer<typeof productSchema>
 export type SortOption =
-  | 'price-asc'
-  | 'price-desc'
+  | 'count-asc'
+  | 'count-desc'
   | 'rating-desc'
   | 'rating-asc'
   

@@ -19,7 +19,9 @@ export default <Partial<Config>>{
           gray: '#445A74',
           lightgray: '#647E9A',
           darkgray: '#253343',
-          lighter: '#F5F7FA'
+          lighter: '#F5F7FA',
+          grayblue: '#57728E',
+          darkblue: '#30445B'
         }
       }, 
       boxShadow: {
@@ -28,6 +30,7 @@ export default <Partial<Config>>{
       borderRadius: {
         6: '6px',
         12: '12px',
+        13: '13px',
         16: '16px',
         24: '24px'
       },
@@ -36,7 +39,9 @@ export default <Partial<Config>>{
         2: "13px",
         3: "14px",
         4: "16px",
-        5: "18px"
+        5: "18px",
+        6: "20px",
+        7: "24px"
       }
     }
   }
