@@ -1,13 +1,13 @@
 <template>
     <div class="flex flex-col">
         <FilterBar/>
-        <List/>
+        <ProductsList/>
     </div>
 </template>
 
-<script>
+<script setup lang="ts">
     import FilterBar from '~/components/layouts/products/FIlterBar/FilterBar.vue';
-    import List from '~/components/layouts/products/List/List.vue';
+    import ProductsList from '~/components/layouts/products/List/ProductsList.vue';
 
     definePageMeta({
         layout: 'list'
