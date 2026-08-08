@@ -2,6 +2,9 @@ import { getProducts } from '~/services/products.service'
 import type { SortOption } from '~/types/product'
 
 export const useProducts = () => {
+  const route = useRoute()
+  const router = useRouter()
+
   const {
     data: products,
     pending: loading,
@@ -32,13 +35,70 @@ export const useProducts = () => {
     () => 'price-asc'
   )
 
+  const syncFiltersFromUrl = () => {
+    searchInput.value =
+      typeof route.query.search === 'string'
+        ? route.query.search
+        : ''
+
+    searchQuery.value =
+      typeof route.query.search === 'string'
+        ? route.query.search
+        : ''
+
+    selectedCategories.value =
+      typeof route.query.categories === 'string'
+        ? route.query.categories.split(',').filter(Boolean)
+        : []
+
+    const sort = route.query.sort
+
+    if (
+      sort === 'price-asc' ||
+      sort === 'price-desc' ||
+      sort === 'rating-desc' ||
+      sort === 'rating-asc'
+    ) {
+      sortBy.value = sort
+    } else {
+      sortBy.value = 'price-asc'
+    }
+  }
+
+  const syncFiltersToUrl = async () => {
+    const query: Record<string, string> = {}
+
+    if (searchQuery.value) {
+      query.search = searchQuery.value
+    }
+
+    if (selectedCategories.value.length > 0) {
+      query.categories =
+        selectedCategories.value.join(',')
+    }
+
+    if (sortBy.value !== 'price-asc') {
+      query.sort = sortBy.value
+    }
+
+    await router.replace({
+      query,
+    })
+  }
+
+  syncFiltersFromUrl()
+
   const categories = computed(() => {
     const categoryMap = new Map<string, number>()
 
     for (const product of products.value ?? []) {
-      const count = categoryMap.get(product.category) ?? 0
+      const count =
+        categoryMap.get(product.category) ?? 0
 
-      categoryMap.set(product.category, count + 1)
+      categoryMap.set(
+        product.category,
+        count + 1
+      )
     }
 
     return Array.from(categoryMap.entries()).map(
@@ -100,44 +160,99 @@ export const useProducts = () => {
     return result
   })
 
-  const search = () => {
-    searchQuery.value = searchInput.value.trim()
+  const search = async () => {
+    searchQuery.value =
+      searchInput.value.trim()
+
+    await syncFiltersToUrl()
   }
 
-  const toggleCategory = (category: string) => {
+  const toggleCategory = async (
+    category: string
+  ) => {
     if (selectedCategories.value.includes(category)) {
       selectedCategories.value =
         selectedCategories.value.filter(
           (item) => item !== category
         )
-
-      return
+    } else {
+      selectedCategories.value.push(category)
     }
 
-    selectedCategories.value.push(category)
+    await syncFiltersToUrl()
   }
 
-  const clearFilters = () => {
+  const changeSort = async (
+    sort: SortOption
+  ) => {
+    sortBy.value = sort
+
+    await syncFiltersToUrl()
+  }
+
+  const clearFilters = async () => {
     searchInput.value = ''
     searchQuery.value = ''
     selectedCategories.value = []
     sortBy.value = 'price-asc'
+
+    await router.replace({
+      query: {},
+    })
+  }
+
+  const syncToUrl = async () => {
+    const query: Record<string, string> = {}
+
+    if (searchQuery.value) {
+      query.search = searchQuery.value
+    }
+
+    if (selectedCategories.value.length) {
+      query.category =
+        selectedCategories.value.join(',')
+    }
+
+    if (sortBy.value !== 'price-asc') {
+      query.sort = sortBy.value
+    }
+
+    await router.replace({
+      query
+    })
+  }
+
+  const updateSort = async (value: SortOption) => {
+    sortBy.value = value
+
+    await syncToUrl()
+  }
+
+  const updateCategories = async (value: string[]) => {
+    selectedCategories.value = value
+
+    await syncToUrl()
   }
 
   return {
     products,
     filteredProducts,
     categories,
+
     searchInput,
     searchQuery,
     selectedCategories,
     sortBy,
+
     loading,
     error,
 
     search,
     toggleCategory,
+    changeSort,
     clearFilters,
     refresh,
+    updateCategories,
+    updateSort
   }
 }

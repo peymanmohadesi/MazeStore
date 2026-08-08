@@ -3,12 +3,15 @@
     <div class="flex flex-col gap-4">
       <Search />
 
-      <Sort v-model="sortBy" />
+      <Sort
+        :model-value="sortBy"
+        @update:model-value="updateSort"
+      />
 
       <Category
         :categories="categories"
         :selected-categories="selectedCategories"
-        @update:selected-categories="selectedCategories = $event"
+        @update:selected-categories="updateCategories"
       />
     </div>
   </aside>
@@ -18,11 +21,13 @@
 import Category from './Category/Category.vue'
 import Search from './Search/Search.vue'
 import Sort from './Sort/Sort.vue'
-import { useProducts } from '~/composables/useProducts.ts'
+import { useProducts } from '~/composables/useProducts'
 
 const {
   sortBy,
   categories,
   selectedCategories,
+  updateSort,
+  updateCategories,
 } = useProducts()
 </script>
