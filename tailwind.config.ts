@@ -14,14 +14,19 @@ export default <Partial<Config>>{
         },
         surface: {
           white: '#ffffff',
-          mainback: '#e9edf5'
+          mainback: '#e9edf5',
+          gray: '#445A74',
+          darkgray: '#253343',
+          lighter: '#F5F7FA'
         }
       }, 
       boxShadow: {
         header: '0 2px 2px 0 #00000014',
       },
       borderRadius: {
-        16: '16px'
+        12: '12px',
+        16: '16px',
+        24: '24px'
       },
       fontSize: {
         1: "12px",

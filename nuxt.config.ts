@@ -10,5 +10,10 @@ export default defineNuxtConfig({
     plugins: [
       svgLoader()
     ]
+  },
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: '',
+    }
   }
 })

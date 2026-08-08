@@ -2,7 +2,7 @@
     <ul class="flex flex-col md:flex-row items-right md:items-center justify-between gap-6 md:mr-[10%] lg:mr-[26%] text-2 text-secondary">
       <li class="group flex items-center gap-2 transition cursor-pointer hover:text-primary
         after:relative after:transition after:-bottom-5 after:-right-16 after:h-[5px] after:w-[5px] after:-ml-2 after:-translate-x-1/2 after:rounded-full after:bg-red-500 after:opacity-0 after:transition-opacity hover:after:opacity-100">
-        <NuxtLink href="/products" class="flex items-center gap-2">
+        <NuxtLink href="/" class="flex items-center gap-2">
           <windowsIcon class="transition w-4 h-4 text-secondary group-hover:text-primary"/>
           <span>لیست محصولات</span>
         </NuxtLink>

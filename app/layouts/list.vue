@@ -5,7 +5,10 @@
 
     <div class="flex min-h-screen">
       <main class="flex-1 p-4 md:p-6 lg:p-8 w-full max-w-[1112px] mx-auto">
-        <slot />
+        <div class="flex gap-4">
+          <SideBar/>
+          <slot />
+        </div>
       </main>
     </div>
   </div>
@@ -14,4 +17,5 @@
 <script setup lang="ts">
   import Header from "~/components/layouts/Header/Header.vue"
   import MobileMenu from "~/components/layouts/Header/MobileMenu.vue";
+  import SideBar from "~/components/layouts/products/SideBar/SideBar.vue";
 </script>
