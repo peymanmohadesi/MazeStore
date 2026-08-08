@@ -1,7 +1,8 @@
 <template>
   <div class="w-full max-w-[822px]">
-    <div v-if="loading">
-      در حال دریافت محصولات...
+    <div v-if="loading"
+      class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <LoadingState/>
     </div>
     <div v-else-if="error">
       {{ error.message }}
@@ -29,10 +30,10 @@
           <h2 class="font-bold mt-4 text-3 line-clamp-1">
             {{ product.title }}
           </h2>
-          <Button class="text-primary border border-surface-mainback w-full text-3 hover:bg-primary-lighter !py-2">
+          <NuxtLink :to="`/product/${product.id}`" class="inline-flex items-center justify-center gap-2 rounded-16 px-4 py-3 text-2 transition text-primary border border-surface-mainback w-full text-3 hover:bg-primary-lighter !py-2">
             <span>مشاهده جزئیات</span>
             <LeftArrow/>
-          </Button>
+          </NuxtLink>
         </div>
       </article>
     </div>
@@ -40,10 +41,9 @@
 </template>
 
 <script setup lang="ts">
-import Button from '~/components/ui/Button/Button.vue';
 import { useProducts } from '~/composables/useProducts';
 import LeftArrow from '~/assets/img/icons/arrow-left.svg'
-import { truncate } from '~/utils/trancate'
+import LoadingState from './LoadingState.vue';
 
 const {
   filteredProducts,
