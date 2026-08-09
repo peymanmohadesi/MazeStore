@@ -1,75 +1,193 @@
-# Nuxt Minimal Starter
+# Simagar Task Manager
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A online shop application built with **Nuxt 4**, **TypeScript** and **Tailwind CSS**.
 
-## Setup
+---
 
-Make sure to install dependencies:
+# Tech Stack
+
+- Nuxt 4
+- Vue 3 Composition API
+- TypeScript
+- Tailwind CSS
+- axios
+
+---
+
+# Features
+
+- View product list
+- Search products
+- Sort by count and rate
+- Filter by categories
+- Reset each filters
+- View Single product page
+- Loading state
+- Empty state
+- Error handling
+- Responsive UI
+- Reusable UI components
+
+---
+
+# Project Structure
+
+```
+app
+│
+├── assets
+│   └── css
+│
+├── components
+│   ├── layout
+│   └── ui (Simple Design System)
+│
+├── composables
+│
+├── layouts
+│
+├── pages
+│
+├── services
+│
+├── utils
+│
+└── types
+```
+
+---
+
+# Architecture
+
+The application follows a layered architecture to separate responsibilities.
+
+```
+UI Components
+      │
+      ▼
+Composables
+      │
+      ▼
+Types and Validate
+      │
+      ▼
+API Service
+      │
+      ▼
+Fake Api
+```
+
+Each layer has a single responsibility and communicates only with the layer directly below it.
+
+---
+
+# API Layer
+
+The application does not communicate with the API directly from components.
+
+All HTTP requests are encapsulated inside the Composable layer.
+
+This keeps components independent from backend implementation details.
+
+---
+
+# Validation
+
+Form validation is isolated from components.
+
+Validation rules are implemented inside the validator layer to keep forms clean and maintainable.
+
+---
+
+# Reusable Components
+
+The project contains reusable UI components including:
+
+- Button
+- Input
+- BottomSheet
+- CheckBox
+- Chip
+- Radio
+- Spinner
+
+This approach keeps the UI consistent and avoids duplication.
+
+---
+
+# Error Handling
+
+Errors are propagated to the composables where they are handled before reaching the UI.
+
+This keeps components simple and predictable.
+
+---
+
+# Performance Considerations
+
+The project includes several performance considerations:
+
+- Reusable composables
+- Small reusable components
+- Separation of business logic from UI
+- Minimal reactive state
+- SSR and Caching
+
+---
+
+# Running the Project
+
+## Install dependencies
 
 ```bash
-# npm
-npm install
-
-# pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Start Nuxt
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Application:
 
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+```
+http://localhost:3000
 ```
 
-Locally preview production build:
+---
 
-```bash
-# npm
-npm run preview
+# Folder Responsibilities
 
-# pnpm
-pnpm preview
+| Folder | Responsibility |
+|----------|---------------|
+| components | UI |
+| services | HTTP client |
+| composables | Shared logic |
+| types | Shared types and validation |
+| utils | Mini Helpers |
 
-# yarn
-yarn preview
+---
 
-# bun
-bun run preview
-```
+# Developer decisions
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Combined use of SVG and <Icon/> to display icons
+    Reason: Due to limited design information regarding icons in Figma.
+
+- Using a background color that complements the design for the photos, given that most of them are transparent.
+
+- The filter sidebar was made sticky so that it remains accessible while scrolling through the list.
+
+---
+
+# Nice To Have
+
+- Products list pagination (Infinite Scroll). This feature requires backend and api changes.
+
+---
+
+# Notes
+
+The project follows a modular structure with emphasis on readability, maintainability and scalability.
+
+Business logic, API communication and presentation layers are intentionally separated to improve long-term maintainability.

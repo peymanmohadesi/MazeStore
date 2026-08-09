@@ -19,7 +19,7 @@
 
 const props = defineProps<Props>()
 
-  const itemsList = ref([
+  const itemsList = computed(() => [
     'لیست محصولات',
     props.category
   ])

@@ -20,10 +20,12 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const productDetail = [
+const product = computed(() => props.product)
+
+const productDetail = computed(() => [
   {
     label: 'قیمت',
-    value: convertNumberToPersian(props.product?.price || 0)
+    value: convertNumberToPersian(product?.value?.price || 0)
   },{
     label: 'توضیحات',
     value: props.product?.description
@@ -32,11 +34,11 @@ const productDetail = [
     value: props.product?.category
   },{
     label: 'رتبه',
-    value: convertNumberToPersian(props.product?.rating?.rate || 0)
+    value: convertNumberToPersian(product?.value?.rating?.rate || 0)
   },{
     label: 'تعداد',
-    value: convertNumberToPersian(props.product?.rating?.count || 0)
+    value: convertNumberToPersian(product?.value?.rating?.count || 0)
   }
-]
+])
 
 </script>

@@ -10,6 +10,7 @@ export const useProduct = (id: number) => {
     `product-${id}`,
     () => getSingleProduct(id)
   )
+  
 
   return {
     product,
