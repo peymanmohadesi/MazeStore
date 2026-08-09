@@ -1,4 +1,4 @@
-# Simagar Task Manager
+# ‌BioMaze Store Application
 
 A online shop application built with **Nuxt 4**, **TypeScript** and **Tailwind CSS**.
 
