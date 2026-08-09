@@ -7,7 +7,7 @@
         <Icon name="lucide:menu" class="w-4 h-4"/>
       </Button>
       <MenuItems v-if="!isMobile"/>
-      <Button @click="call" class="flex absolute md:static left-4 bg-white md:bg-primary text-primary md:text-surface-white hover:bg-primary-light text-3 px-6 border border-primary md:border-0 !px-3 !md:px-4 rounded-8">
+      <Button @click="call" class="flex absolute md:static left-4 bg-white md:bg-primary text-primary md:text-surface-white hover:bg-primary-light text-3 px-6 border border-primary md:border-0 !px-3 !md:px-4 rounded-8 md:rounded-16">
         <span v-if="!isMobile">تماس</span>
           <phone2 class="!w-4 !h-4"/>
       </Button>
