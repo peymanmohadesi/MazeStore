@@ -169,7 +169,16 @@ http://localhost:3000
 
 ---
 
+# Pages and Features
+
+- (/): Product List and Filters in sidebar
+- (/product/[id]): Each Products Detail.
+
+---
+
 # Developer decisions
+
+- Preserving filter states in the URL and query parameters.
 
 - Combined use of SVG and <Icon/> to display icons
     Reason: Due to limited design information regarding icons in Figma.

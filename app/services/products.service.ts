@@ -4,7 +4,11 @@ import { createApi } from './api'
 export const getProducts = async (): Promise<Product[]> => {
   const api = createApi()
 
-  const response = await api.get('/products')
+  const response = await api.get('/products', {
+    validateStatus: (status) => {
+      return status >= 200 && status < 400
+    }
+  })
 
   const result = productsSchema.safeParse(response.data)
 
