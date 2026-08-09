@@ -4,7 +4,7 @@ export const useDevice = () => {
 
   const updateDevice = () => {
     isMobile.value = window.innerWidth < 768
-    isTablet.value = window.innerWidth < 920
+    isTablet.value = window.innerWidth < 920 && window.innerWidth > 768
   }
 
   onMounted(() => {
