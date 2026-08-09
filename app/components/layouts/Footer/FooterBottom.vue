@@ -31,18 +31,17 @@
         </div>
       </div>
       <div class="flex gap-4">
-        <span class="bg-white p-4 rounded-lg">
-          <Samandehi/>
-        </span>
-        <span class="bg-white p-4 rounded-lg">
-          <Enamad/>
-        </span>
-      </div>
+  <span class="bg-white p-4 rounded-lg">
+    <img src="/img/footer/samandehi.svg" alt="ساماندهی" />
+  </span>
+
+  <span class="bg-white p-4 rounded-lg">
+    <img src="/img/footer/enamad.svg" alt="اینماد" />
+  </span>
+</div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import Samandehi from '~/assets/img/footer/samandehi.svg'
-  import Enamad from '~/assets/img/footer/enamad.svg'
 </script>

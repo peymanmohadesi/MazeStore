@@ -31,6 +31,7 @@ export default <Partial<Config>>{
       },
       borderRadius: {
         6: '6px',
+        8: "8px",
         12: '12px',
         13: '13px',
         16: '16px',
