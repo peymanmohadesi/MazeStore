@@ -25,7 +25,7 @@ const product = computed(() => props.product)
 const productDetail = computed(() => [
   {
     label: 'قیمت',
-    value: convertNumberToPersian(product?.value?.price || 0)
+    value: `${convertNumberToPersian(product?.value?.price || 0)} تومان`
   },{
     label: 'توضیحات',
     value: props.product?.description
