@@ -4,15 +4,13 @@
       class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <LoadingState/>
     </div>
-    <div v-else-if="error" class="w-full bg-white p-4 rounded-24 text-center">
-      <Icon name="fa-warning" class="w-full w-10 h-10 text-primary"/>
+    <ErrorState v-else-if="error">
       {{ error.message }}
-    </div>
+    </ErrorState>
 
-    <div v-else-if="!filteredProducts?.length" class="w-full bg-white p-4 rounded-24 text-center">
-      <Icon name="fa-warning" class="w-full w-10 h-10 text-primary"/>>
+    <ErrorState v-else-if="!filteredProducts?.length">
       محصولی پیدا نشد.
-    </div>
+    </ErrorState>
 
     <div
       v-else
@@ -46,6 +44,7 @@
 import { useProducts } from '~/composables/useProducts';
 import LeftArrow from '~/assets/img/icons/arrow-left.svg'
 import LoadingState from './LoadingState.vue';
+import ErrorState from './ErrorState.vue';
 
 const {
   filteredProducts,

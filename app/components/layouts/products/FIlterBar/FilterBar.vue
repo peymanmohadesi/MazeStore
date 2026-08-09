@@ -11,9 +11,7 @@
         :label="searchQuery"
         @close="handleClose"
       >
-      <template>
         <SearchIcon class="text-secondary"/>
-      </template>
       </Chip>
       <Chip
         v-if="sortBy"
@@ -21,16 +19,16 @@
         :label="sortLabel()"
         @close="handleClose"
       >
-      <template>
         <PriceDown :class="sortBy=='rating-asc' ? 'rotate-180' : ''" class="text-secondary"/>
-      </template>
       </Chip>
       <Chip
         v-if="selectedCategories.length"
         id="category"
         label="دسته بندی"
         @close="handleClose"
-      />
+      >
+      <Windows :class="sortBy=='rating-asc' ? 'rotate-180' : ''" class="text-secondary"/>
+      </Chip>
     </div>
   </div>
 </template>
@@ -38,6 +36,7 @@
 <script lang="ts" setup>
 import Chip from '~/components/ui/Chip/Chip.vue';
 import SearchIcon from '~/assets/img/icons/search.svg'
+import Windows from '~/assets/img/icons/windows.svg'
 import PriceDown from '~/assets/img/icons/price-down.svg'
 import { useProducts } from '~/composables/useProducts';
 

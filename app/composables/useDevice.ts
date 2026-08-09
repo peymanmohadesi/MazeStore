@@ -1,8 +1,10 @@
 export const useDevice = () => {
   const isMobile = ref(false)
+  const isTablet = ref(false)
 
   const updateDevice = () => {
     isMobile.value = window.innerWidth < 768
+    isTablet.value = window.innerWidth < 920
   }
 
   onMounted(() => {
@@ -15,6 +17,7 @@ export const useDevice = () => {
   })
 
   return {
-    isMobile
+    isMobile,
+    isTablet
   }
 }

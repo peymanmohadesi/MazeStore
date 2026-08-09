@@ -2,6 +2,7 @@
   <Card title="فیلتر و جستجو">
     <div class="flex flex-col gap-4">
       <Input
+        @keyup.enter="search"
         placeholder="عنوان محصول را وارد کن..."
         v-model="searchInput">
         <template #rightIcon>
