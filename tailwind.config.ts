@@ -43,7 +43,8 @@ export default <Partial<Config>>{
         4: "16px",
         5: "18px",
         6: "20px",
-        7: "24px"
+        7: "24px",
+        8: "8px"
       }
     }
   }

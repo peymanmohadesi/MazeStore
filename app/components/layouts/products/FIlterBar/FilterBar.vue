@@ -1,5 +1,7 @@
 <template>
-  <div class="rounded-24 p-4 bg-white flex items-center justify-between flex-wrap shadow-[0px_10px_40px_0px_#0000000D] text-3 text-surface-darkgray">
+  <div 
+    v-if="searchQuery || (sortBy && sortBy !== 'count-asc') || selectedCategories.length"
+  class="rounded-24 p-4 bg-white flex items-center justify-between flex-wrap shadow-[0px_10px_40px_0px_#0000000D] text-3 text-surface-darkgray">
     <span class="hidden md:block">فیلترهای اعمال شده</span>
     
     <div class="flex items-center justify-between flex-wrap gap-3">
@@ -20,7 +22,7 @@
         @close="handleClose"
       >
       <template>
-        <PriceDown :class="sortBy=='count-asc' || sortBy=='rating-asc' ? 'rotate-180' : ''" class="text-secondary"/>
+        <PriceDown :class="sortBy=='rating-asc' ? 'rotate-180' : ''" class="text-secondary"/>
       </template>
       </Chip>
       <Chip
