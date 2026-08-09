@@ -7,6 +7,7 @@ export default <Partial<Config>>{
         primary: {
           DEFAULT: '#E20054',
           light: '#e2246a',
+          sociallight: '#F180A9',
           lighter: '#FCE5EE',
           lighten: '#fce5ee65'
         },
@@ -21,7 +22,8 @@ export default <Partial<Config>>{
           darkgray: '#253343',
           lighter: '#F5F7FA',
           grayblue: '#57728E',
-          darkblue: '#30445B'
+          darkblue: '#30445B',
+          socialback: '#6783A0'
         }
       }, 
       boxShadow: {

@@ -13,9 +13,11 @@
       </main>
     </div>
   </div>
+  <Footer/>
 </template>
 
 <script setup lang="ts">
+import Footer from "~/components/layouts/Footer/Footer.vue"
 import Header from "~/components/layouts/Header/Header.vue"
 import MobileMenu from "~/components/layouts/Header/MobileMenu.vue"
 import SideBar from "~/components/layouts/products/SideBar/SideBar.vue"
